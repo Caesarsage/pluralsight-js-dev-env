@@ -1,3 +1,3 @@
-var chark = require('chalk');
+import chalk from 'chalk';
 
-console.log(chark.green("Sarting app in dev mode ...")) //run this before the web server starts up. setup in packagejon => script
+console.log(chalk.green("Sarting app in dev mode ...")) //run this before the web server starts up. setup in packagejon => script
