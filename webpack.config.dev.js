@@ -5,7 +5,7 @@ export default{
     debug: true,
     devtool: 'inline-source-map', //
     noInfo: false, //webpace display
-    //define the empty point
+    //define the entry point
     entry: [
         path.resolve(__dirname, 'src/index')
     ],
