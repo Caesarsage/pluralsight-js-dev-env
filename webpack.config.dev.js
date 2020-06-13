@@ -3,7 +3,7 @@ import path from 'path';
 
 export default{
     debug: true,
-    devtool: 'inline-source-map', //
+    devtool: 'inline-source-map', //help map code to original
     noInfo: false, //webpace display
     //define the entry point
     entry: [
