@@ -9,8 +9,8 @@
     "lint":"esw webpack.config.* src buildScript --color",
     "lint:watch": "npm run lint -- --watch",
     "localtunnel": "lt --port 5000",
-    "share": "npm-run-all --parallel open:src localtunnel"
-    
+    "share": "npm-run-all --parallel open:src localtunnel",
+    "test": "mocha --reporter progress buildScript/testSetup.js \"src/**/*.test.js\""
   },
   "author": "Caesarsage",
   "license": "MIT",
