@@ -17,7 +17,7 @@ describe('index.html', ()=>{
         //get the element to assert
         const index = fs.readFileSync('./src/index.html', "utf-8");
         jsdom.env(index, function (err, window) {
-            const h1 = window.document.getElementByTagName('h1')[0];
+            const h1 = window.document.getElementsByTagName('h1')[0];
             //asertion
             expect(h1.innerHTML).to.equal("Hello world!!!");
             done(); //add
