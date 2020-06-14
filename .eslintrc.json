@@ -1,0 +1,23 @@
+{
+    "root": true, // help tell the program to look up the root for the only eslint files
+    "extend": [
+        "eslint:recommended", // eslint recommended rules
+        "plugin:import/errors", // f0r invalid imorts
+        "plugin:import/warnings" // give the imprt warning
+    ],
+    //Parse env declare ecmaVersion and the type
+    "parserOptions": {
+        "ecmaVersion": 7, //es version
+        "sourceType": "module" // declaring standard module
+    },
+    //env declare the env esslint be aware of and expect certain global variable
+    "env": {
+        "browser": true, //check for browser
+        "node": true,// check for node
+        "mocha":true // check for mocha
+    },
+    //rules we want to override
+    "rules": {
+        "no-console": 1 //0= Off , 1=Warning, 2=Error
+    }
+}

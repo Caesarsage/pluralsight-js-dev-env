@@ -6,9 +6,11 @@
     "prestart":"babel-node buildScript/startMessage.js",
     "start": "npm-run-all --parallel open:src",
     "open:src": "babel-node buildScript/srcServer.js",
-    "security-check": "nsp check",
+    "lint":"esw webpack.config.* src buildScript --color",
+    "lint:watch": "npm run lint -- --watch",
     "localtunnel": "lt --port 5000",
     "share": "npm-run-all --parallel open:src localtunnel"
+    
   },
   "author": "Caesarsage",
   "license": "MIT",
