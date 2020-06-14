@@ -13,13 +13,13 @@ describe('Our first test', ()=>{
 //test to jsDom
 
 describe('index.html', ()=>{
-    it('should say hello', (done)=>{
+    it('should have h1 that says Users', (done)=>{
         //get the element to assert
         const index = fs.readFileSync('./src/index.html', "utf-8");
         jsdom.env(index, function (err, window) {
             const h1 = window.document.getElementsByTagName('h1')[0];
             //asertion
-            expect(h1.innerHTML).to.equal("Hello world!!!");
+            expect(h1.innerHTML).to.equal("Users");
             done(); //add
             window.close();        
         });
