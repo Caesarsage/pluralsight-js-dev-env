@@ -1,8 +1,9 @@
 import path from 'path';
+import webpack from 'webpack';
 
 export default{
     debug: true,
-    devtool: 'inline-source-map', //help map code to original
+    devtool: 'source-map', //Recommended for production
     noInfo: false, //webpace display
     //define the entry point
     entry: [
@@ -13,12 +14,17 @@ export default{
     //define output => where to create our bundle in memory
     //create a path / build process that generate file for production
     output: {
-        path: path.resolve(__dirname, 'src'),
+        path: path.resolve(__dirname, 'dist'),
         publicPath: '/',
         filename: 'bundle.js'
     },
     //[optional] define a plugin such as hot reloading , catching error
-    plugins:[],
+    plugins:[
+        //Eliminate duplicate package when generating bundle
+        new webpack.optimize.DedupePlugin(),
+        //Minify JS
+        new webpack.optimize.UglifyJsPlugin()
+    ],
     //Define file type by defining loaders
     module: {
         loaders: [
