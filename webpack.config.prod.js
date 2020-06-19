@@ -7,9 +7,10 @@ export default{
     devtool: 'source-map', //Recommended for production
     noInfo: false, //webpace display
     //define the entry point
-    entry: [
-        path.resolve(__dirname, 'src/index')
-    ],
+    entry: {
+        vendor: path.resolve(__dirname, 'src/vendor'),
+        main: path.resolve(__dirname, 'src/index')
+    },
     //define target : web or node or electron etc
     target: 'web',
     //define output => where to create our bundle in memory
@@ -17,10 +18,14 @@ export default{
     output: {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/',
-        filename: 'bundle.js'
+        filename: '[name].js'
     },
     //[optional] define a plugin such as hot reloading , catching error
     plugins:[
+        //Use CommonChunPlugin to create a separate bundle of vendor library so that they are cached separately.
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor'
+        }),
         //Create HTML file that includes reference to bundled JS..
         new HtmlWebPackPlugin({
             template: 'src/index.html',
