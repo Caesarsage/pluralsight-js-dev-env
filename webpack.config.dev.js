@@ -1,4 +1,5 @@
 import path from 'path';
+import HtmlWebPackPlugin from 'html-webpack-plugin';
 
 export default{
     debug: true,
@@ -18,7 +19,25 @@ export default{
         filename: 'bundle.js'
     },
     //[optional] define a plugin such as hot reloading , catching error
-    plugins:[],
+    plugins:[
+        new HtmlWebPackPlugin({
+            //create html file that includes referrence to bundled JS
+            template: 'src/index.html',
+            minify: {
+                removeComments : true,
+                collapseWhitespace: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+                removeEmptyAttributes:true,
+                removeStyleLinkTypeAttributes:true,
+                keepClosingSlash:true,
+                minifyCSS:true,
+                minifyJS:true,
+                minifyURLs:true
+            },
+            inject: true
+        })
+    ],
     //Define file type by defining loaders
     module: {
         loaders: [
